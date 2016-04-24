@@ -71,6 +71,39 @@ public class HRDao {
 		stmt.close();
 		return al;
 	}
+	public ArrayList<ArrayList<String>> searchAllEmpByFields(String choice) throws SQLException, ClassNotFoundException {
+		System.out.println(choice + " ");
+
+		
+		fields= ("SELECT " + choice + " FROM employees ");
+		input = fields;
+		System.out.println("this is whereclause: "+choice);
+		System.out.println("in method");
+		
+		Class.forName(DRIVER_CLASS_NAME);
+		conn = DriverManager.getConnection(URL, "student", "student");
+		sql = input;
+		stmt = conn.createStatement();
+		rs = stmt.executeQuery(sql);
+		rsmd = rs.getMetaData();
+		
+		for (int i = 1; (i < rsmd.getColumnCount()+1); i++) {
+			rowHeader.add((rsmd.getColumnName(i)));
+		}
+		al.add(rowHeader);
+		while (rs.next()){
+			rows = new ArrayList<>();
+			for (int i=1; (i < rsmd.getColumnCount()+1) ; i++){
+				rows.add(rs.getString(i));
+			}
+			al.add(rows);
+		}
+		
+		rs.close();
+		conn.close();
+		stmt.close();
+		return al;
+	}
 	public ArrayList<ArrayList<String>> searchEmpByID(String id) throws SQLException, ClassNotFoundException {
 
 
