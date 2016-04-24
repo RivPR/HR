@@ -52,11 +52,10 @@ public class HRController {
 		mv.addObject("field", id);
 		return mv;
 	}
-	
 	@RequestMapping(path="getAllEmployeesByFields.do", params="allByField")
 	public ModelAndView getAllEmpsByFields(@RequestParam("fieldChoice") String choice) throws ClassNotFoundException, SQLException{
-
-	
+		
+		
 		hrDao = new HRDao(choice, "employees");
 		al = hrDao.searchAllEmpByFields(choice);
 		header = al.get(0);
@@ -69,6 +68,23 @@ public class HRController {
 		mv.addObject("field", choice);
 		return mv;
 	}
+	@RequestMapping(path="getAllAssignmentsByFields.do", params="allByField")
+	public ModelAndView getAllAssByFields(@RequestParam("fieldChoice") String choice) throws ClassNotFoundException, SQLException{
+		
+		
+		hrDao = new HRDao(choice, "employees");
+		al = hrDao.searchAllAssByFields(choice);
+		header = al.get(0);
+		al.remove(0);
+		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("results.jsp");
+		mv.addObject("head", header);
+		mv.addObject("table", al);
+		mv.addObject("field", choice);
+		return mv;
+	}
+	
 	
 	
 	

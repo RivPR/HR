@@ -33,6 +33,8 @@
 		</select>
 		<button type="submit" name="allByField">Search for all employees by field</button>
 		<br/>
+		<h4>*Only type in the field you want to include*</h4>
+		<h5>*Make sure to erase all other fields*</h5>
 		<input type="radio" name="option" value="id">
 		<label for="option"><span><span></span></span>ID#</label>
 		<input type="text" name="where"><br/>
@@ -63,18 +65,17 @@
 	
 	<br/>
 <div>	
-	<form action="getAllAssingmentsByFields.do" method="GET">
-
+	<form action="getAllAssignmentsByFields.do" method="GET">
 			<h3>Assignments Table</h3>
-		 <br />Choose the field:<br /> <select name="fieldChoice" multiple>
+		Choose the field:<br /> <select name="fieldChoice" multiple>
 			<option value="id">ID</option>
 			<option value="name">Name</option>
 			<option value="start_date">Start Date</option>
-			<option value="end_start">End Date</option>
+			<option value="end_date">End Date</option>
 			<option value="employee_id">Employee ID#</option>
 			<option value="project_id">Project ID#</option>
 		</select> <br />
-		<button type="submit" name="getit">Submit</button>
+		<button type="submit" name="allByField">Search for all assignments by field</button>
 	</form>
 	</div>
 	
