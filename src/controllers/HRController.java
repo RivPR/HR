@@ -254,7 +254,35 @@ public class HRController {
 
 		return mv;
 	}
+	@RequestMapping(path="editEmp.do", params="submitID")
+	public ModelAndView EditEmpByID(@RequestParam("id") String id, @RequestParam("pass") String pass) throws ClassNotFoundException, SQLException{
+		
+		hrDao = new HRDao(id);
+		al = hrDao.editEmpByID(id, pass);
+		header = al.get(0);
+		al.remove(0);
+		ModelAndView mv = new ModelAndView();
+		System.out.println("AL: " + al.toString());
+		mv.setViewName("edit.jsp");
+		mv.addObject("head", header);
+		mv.addObject("table", al);
+		mv.addObject("field", id);
+		return mv;
+	}
+	@RequestMapping(path="updateEmp.do", params="submitID")
+	public ModelAndView UpdateEmp(@RequestParam("option") String field, @RequestParam("where") String where) throws ClassNotFoundException, SQLException{
+		
+		hrDao = new HRDao(field);
+		hrDao.updateEmp(field, where);
+		
 	
+		ModelAndView mv = new ModelAndView();
+
+		mv.setViewName("index.jsp");
+		mv.addObject("head", header);
+		mv.addObject("table", al);
+		return mv;
+	}
 	
 	
 }

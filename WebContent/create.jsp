@@ -99,9 +99,26 @@
 		</form>
   </div>
   </div>
-  </div>
-  </div>
+
   
+  <div class="col-lg-4 col-md-6 col-xs-12">
+		<div class="plan plan">
+  	    <form action="editEmp.do" method="GET">
+			<h3 class="plan-name">Edit an Employee</h3>
+		ID# of Employee to be edited
+		<input type="text" name="id" value="*REQUIRED*"><br/>
+		
+
+		
+
+			<h4>*Only Admin users can edit personnel*</h4>
+		<input type="password" name="pass" value="pass">
+		<button type="submit" name="submitID">Submit</button>
+		</form>
+		</div>
+		</div>
+ </div>	
+ </div>
 
 </body>
 </html>

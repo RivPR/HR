@@ -517,6 +517,66 @@ public class HRDao {
 		return "You deleted an employee!";
 		
 		
+	}	
+	public ArrayList<ArrayList<String>> editEmpByID(String id, String password) throws SQLException, ClassNotFoundException {
+
+
+		whereClause= ("WHERE id = " + id);
+		fields= ("SELECT * FROM employees " + whereClause );
+		input = fields;
+//		System.out.println("this is whereclause: "+fields);
+//		System.out.println("in method");
+		Class.forName(DRIVER_CLASS_NAME);
+		conn = DriverManager.getConnection(URL, "student", password);
+		sql = input;
+		stmt = conn.createStatement();
+		rs = stmt.executeQuery(sql);
+		rsmd = rs.getMetaData();
+		
+		for (int i = 1; (i < rsmd.getColumnCount()+1); i++) {
+			rowHeader.add((rsmd.getColumnName(i)));
+		}
+		al.add(rowHeader);
+		while (rs.next()){
+			rows = new ArrayList<>();
+			for (int i=1; (i < rsmd.getColumnCount()+1) ; i++){
+				rows.add(rs.getString(i));
+			}
+			al.add(rows);
+		}
+		
+		rs.close();
+		conn.close();
+		stmt.close();
+		return al;
+	}
+	public String updateEmp(String field, String where) throws SQLException, ClassNotFoundException {
+		//System.out.println(choice + " " +  " " + fname+" " + lname+ " " + dID + " " + jID);
+
+
+System.out.println(field + " " + where);
+		fields= ("UPDATE employees SET (" + ") VALUES (" + whereClause + ")" );
+		System.out.println("this is whereclause: "+fields );
+		//System.out.println("in method");
+
+		
+		input = fields;
+		Class.forName(DRIVER_CLASS_NAME);
+		//System.out.println("before conn");
+		conn = DriverManager.getConnection(URL, "student", "student");
+		//sql = input;
+		//System.out.println("before statement");
+		//stmt = conn.createStatement();
+		//stmt.executeUpdate(sql);
+		System.out.println("after execute");
+
+		
+		conn.close();
+		stmt.close();
+		System.out.println("before leaving");
+		return "You added an employee!";
+		
+		
 	}
 
 }
