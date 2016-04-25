@@ -19,7 +19,7 @@
 <nav class="navbar navbar-inverse navbar-fixed-top hidden-xs">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="www.ARMoreira.com">ARMoreira</a>
+      <a class="navbar-brand" href=""http://www.ARMoreira.com"m">ARMoreira</a>
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="#">Delete employee</a></li>
