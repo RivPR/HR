@@ -13,7 +13,7 @@
 	</form>
 	<br />
 </div>
-<div>
+<div id="emptable">
 	<form action="getAllEmployeesByFields.do" method="GET">
 		
 			<h3>Employees Table</h3>
@@ -62,9 +62,8 @@
 		<button type="submit" name="getit">Submit</button>
 	</form>
 </div>
-	
-	<br/>
-<div>	
+
+<div id="asstable">	
 	<form action="getAllAssignmentsByFields.do" method="GET">
 			<h3>Assignments Table</h3>
 		Choose the field:<br /> <select name="fieldChoice" multiple>
@@ -76,9 +75,101 @@
 			<option value="project_id">Project ID#</option>
 		</select> <br />
 		<button type="submit" name="allByField">Search for all assignments by field</button>
-	</form>
-	</div>
 	
+		<h4>*Only type in the field you want to include*</h4>
+		<h5>*Make sure to erase all other fields*</h5>
+		<input type="radio" name="option" value="id">
+		<label for="option"><span><span></span></span>ID#</label>
+		<input type="text" name="where"><br/>
+		<input type="radio" name="option" value="name">
+		<label for="option"><span><span></span></span>Name</label>
+		<input type="text" name="where"><br/>
+		<input type="radio" name="option" value="start_date">
+		<label for="option"><span><span></span></span>Start Date</label>
+		<input type="text" name="where"><br/>
+		<input type="radio" name="option" value="end_date">
+		<label for="option"><span><span></span></span>End Date</label>
+		<input type="text" name="where"><br/>
+		<input type="radio" name="option" value="employee_id">
+		<label for="option"><span><span></span></span>Employee ID#</label>
+		<input type="text" name="where"><br/>
+		<input type="radio" name="option" value="project_id">
+		<label for="option"><span><span></span></span>Project ID#</label>
+		<input type="text" name="where"><br/>
+		
+		<button type="submit" name="getit">Submit</button>
+	</form>
+</div>
+
+<div id="jobstable">	
+	<form action="getAllJobsByFields.do" method="GET">
+			<h3>Jobs Table</h3>
+		Choose the field:<br /> <select name="fieldChoice" multiple>
+			<option value="id">ID</option>
+			<option value="name">Name</option>
+			<option value="minimum_salary">Minimum Salary</option>
+			<option value="maximum_salary">Maximum Salary</option>
+		</select> <br />
+		<button type="submit" name="allByField">Search for all jobs by field</button>
+	
+		<h4>*Only type in the field you want to include*</h4>
+		<h5>*Make sure to erase all other fields*</h5>
+		<input type="radio" name="option" value="id">
+		<label for="option"><span><span></span></span>ID#</label>
+		<input type="text" name="where"><br/>
+		<input type="radio" name="option" value="name">
+		<label for="option"><span><span></span></span>Name</label>
+		<input type="text" name="where"><br/>
+		<input type="radio" name="option" value="minimum_salary">
+		<label for="option"><span><span></span></span>Minimum Salary</label>
+		<input type="text" name="where"><br/>
+		<input type="radio" name="option" value="maximum_salary">
+		<label for="option"><span><span></span></span>Maximum Salary</label>
+		<input type="text" name="where"><br/>
+
+		
+		<button type="submit" name="getit">Submit</button>
+	</form>
+</div>
+
+<div id="locationstable">	
+	<form action="getAllLocaByFields.do" method="GET">
+			<h3>Locations Table</h3>
+		Choose the field:<br /> <select name="fieldChoice" multiple>
+			<option value="id">ID</option>
+			<option value="square_footage">Square Footage</option>
+			<option value="street_address">Street Address</option>
+			<option value="city">City</option>
+			<option value="state">State</option>
+			<option value="zipcode">Zipcode</option>
+		</select> <br />
+		<button type="submit" name="allByField">Search for all locations by field</button>
+	
+		<h4>*Only type in the field you want to include*</h4>
+		<h5>*Make sure to erase all other fields*</h5>
+		<input type="radio" name="option" value="id">
+		<label for="option"><span><span></span></span>ID#</label>
+		<input type="text" name="where"><br/>
+		<input type="radio" name="option" value="square_footage">
+		<label for="option"><span><span></span></span>Square Footage</label>
+		<input type="text" name="where"><br/>
+		<input type="radio" name="option" value="street_address">
+		<label for="option"><span><span></span></span>Street Address</label>
+		<input type="text" name="where"><br/>
+		<input type="radio" name="option" value="city">
+		<label for="option"><span><span></span></span>City</label>
+		<input type="text" name="where"><br/>
+		<input type="radio" name="option" value="state">
+		<label for="option"><span><span></span></span>State</label>
+		<input type="text" name="where"><br/>
+		<input type="radio" name="option" value="zipcode">
+		<label for="option"><span><span></span></span>Zipcode</label>
+		<input type="text" name="where"><br/>
+
+		
+		<button type="submit" name="getit">Submit</button>
+	</form>
+</div>
 
 
 </body>

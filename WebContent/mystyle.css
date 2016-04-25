@@ -7,6 +7,23 @@ table, th, td {
    border: 1px solid black;
 }
 
+#emptable{
+	display: inline-block;
+
+}
+#asstable{
+	display: inline-block;
+
+}
+#locationstable{
+	display: inline-block;
+
+}
+#jobstable{
+	display: inline-block;
+
+}
+
 
 
 
