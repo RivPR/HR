@@ -164,6 +164,70 @@ public class HRController {
 		mv.addObject("field", choice);
 		return mv;
 	}
+	@RequestMapping(path="getAllProjByFields.do", params="allByField")
+	public ModelAndView getAllProjByFields(@RequestParam("fieldChoice") String choice) throws ClassNotFoundException, SQLException{
+		
+		//System.out.println("this is the choice: " +choice);
+		hrDao = new HRDao(choice, "projects");
+		al = hrDao.searchAllProjByFields(choice);
+		header = al.get(0);
+		al.remove(0);
+		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("results.jsp");
+		mv.addObject("head", header);
+		mv.addObject("table", al);
+		mv.addObject("field", choice);
+		return mv;
+	}
+	@RequestMapping(path="getAllProjByFields.do", params="getit")
+	public ModelAndView getProjByFields(@RequestParam("fieldChoice") String choice, @RequestParam("option") String field, @RequestParam("where") String where ) throws ClassNotFoundException, SQLException{
+		where = where.replace(',' , ' ').trim(); 
+		//System.out.println("This is the choices "+choice+" "+ field+" "+ where);
+		hrDao = new HRDao(choice, "projects");
+		al=hrDao.searchProjByFields(choice, field, where);
+		System.out.println(al.toString());
+		header = al.get(0);
+		al.remove(0);		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("results.jsp");
+		mv.addObject("head", header);
+		mv.addObject("table", al);
+		mv.addObject("field", choice);
+		return mv;
+	}
+	@RequestMapping(path="getAllDeptByFields.do", params="allByField")
+	public ModelAndView getAllDeptByFields(@RequestParam("fieldChoice") String choice) throws ClassNotFoundException, SQLException{
+		
+		//System.out.println("this is the choice: " +choice);
+		hrDao = new HRDao(choice, "departments");
+		al = hrDao.searchAllDeptByFields(choice);
+		header = al.get(0);
+		al.remove(0);
+		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("results.jsp");
+		mv.addObject("head", header);
+		mv.addObject("table", al);
+		mv.addObject("field", choice);
+		return mv;
+	}
+	@RequestMapping(path="getAllDeptByFields.do", params="getit")
+	public ModelAndView getDeptByFields(@RequestParam("fieldChoice") String choice, @RequestParam("option") String field, @RequestParam("where") String where ) throws ClassNotFoundException, SQLException{
+		where = where.replace(',' , ' ').trim(); 
+		//System.out.println("This is the choices "+choice+" "+ field+" "+ where);
+		hrDao = new HRDao(choice, "departments");
+		al=hrDao.searchDeptByFields(choice, field, where);
+		System.out.println(al.toString());
+		header = al.get(0);
+		al.remove(0);		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("results.jsp");
+		mv.addObject("head", header);
+		mv.addObject("table", al);
+		mv.addObject("field", choice);
+		return mv;
+	}
 	
 	
 	

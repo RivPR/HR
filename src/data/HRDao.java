@@ -334,5 +334,137 @@ public class HRDao {
 		stmt.close();
 		return al;
 	}
+	public ArrayList<ArrayList<String>> searchAllProjByFields(String choice) throws SQLException, ClassNotFoundException {
+		
+		
+		
+		fields= ("SELECT " + choice + " FROM projects ");
+		input = fields;
+//		System.out.println("this is whereclause: "+fields);
+//		System.out.println("in method");
+		Class.forName(DRIVER_CLASS_NAME);
+		conn = DriverManager.getConnection(URL, "student", "student");
+		sql = input;
+		stmt = conn.createStatement();
+		rs = stmt.executeQuery(sql);
+		rsmd = rs.getMetaData();
+		
+		for (int i = 1; (i < rsmd.getColumnCount()+1); i++) {
+			rowHeader.add((rsmd.getColumnName(i)));
+		}
+		al.add(rowHeader);
+		while (rs.next()){
+			rows = new ArrayList<>();
+			for (int i=1; (i < rsmd.getColumnCount()+1) ; i++){
+				rows.add(rs.getString(i));
+			}
+			al.add(rows);
+		}
+		
+		rs.close();
+		conn.close();
+		stmt.close();
+		return al;
+	}
+	public ArrayList<ArrayList<String>> searchProjByFields(String choice, String field, String where ) throws SQLException, ClassNotFoundException {
+		System.out.println(choice + " " + field + " " + where);
+		//the where clause was coming over with an extra 8 commas
+		where = where.replace(',' , ' ').trim(); 
+		whereClause= ("WHERE " + field + "= '" + where + "'");
+		fields= ("SELECT " + choice + " FROM projects " + whereClause );
+		input = fields;
+		System.out.println("this is whereclause: "+fields);
+		System.out.println("in method");
+		
+		Class.forName(DRIVER_CLASS_NAME);
+		conn = DriverManager.getConnection(URL, "student", "student");
+		sql = input;
+		stmt = conn.createStatement();
+		rs = stmt.executeQuery(sql);
+		rsmd = rs.getMetaData();
+		
+		for (int i = 1; (i < rsmd.getColumnCount()+1); i++) {
+			rowHeader.add((rsmd.getColumnName(i)));
+		}
+		al.add(rowHeader);
+		while (rs.next()){
+			rows = new ArrayList<>();
+			for (int i=1; (i < rsmd.getColumnCount()+1) ; i++){
+				rows.add(rs.getString(i));
+			}
+			al.add(rows);
+		}
+		
+		rs.close();
+		conn.close();
+		stmt.close();
+		return al;
+	}
+	public ArrayList<ArrayList<String>> searchAllDeptByFields(String choice) throws SQLException, ClassNotFoundException {
+		
+		
+		
+		fields= ("SELECT " + choice + " FROM departments ");
+		input = fields;
+//		System.out.println("this is whereclause: "+fields);
+//		System.out.println("in method");
+		Class.forName(DRIVER_CLASS_NAME);
+		conn = DriverManager.getConnection(URL, "student", "student");
+		sql = input;
+		stmt = conn.createStatement();
+		rs = stmt.executeQuery(sql);
+		rsmd = rs.getMetaData();
+		
+		for (int i = 1; (i < rsmd.getColumnCount()+1); i++) {
+			rowHeader.add((rsmd.getColumnName(i)));
+		}
+		al.add(rowHeader);
+		while (rs.next()){
+			rows = new ArrayList<>();
+			for (int i=1; (i < rsmd.getColumnCount()+1) ; i++){
+				rows.add(rs.getString(i));
+			}
+			al.add(rows);
+		}
+		
+		rs.close();
+		conn.close();
+		stmt.close();
+		return al;
+	}
+	public ArrayList<ArrayList<String>> searchDeptByFields(String choice, String field, String where ) throws SQLException, ClassNotFoundException {
+		System.out.println(choice + " " + field + " " + where);
+		//the where clause was coming over with an extra 8 commas
+		where = where.replace(',' , ' ').trim(); 
+		whereClause= ("WHERE " + field + "= '" + where + "'");
+		fields= ("SELECT " + choice + " FROM departments " + whereClause );
+		input = fields;
+		System.out.println("this is whereclause: "+fields);
+		System.out.println("in method");
+		
+		Class.forName(DRIVER_CLASS_NAME);
+		conn = DriverManager.getConnection(URL, "student", "student");
+		sql = input;
+		stmt = conn.createStatement();
+		rs = stmt.executeQuery(sql);
+		rsmd = rs.getMetaData();
+		
+		for (int i = 1; (i < rsmd.getColumnCount()+1); i++) {
+			rowHeader.add((rsmd.getColumnName(i)));
+		}
+		al.add(rowHeader);
+		while (rs.next()){
+			rows = new ArrayList<>();
+			for (int i=1; (i < rsmd.getColumnCount()+1) ; i++){
+				rows.add(rs.getString(i));
+			}
+			al.add(rows);
+		}
+		
+		rs.close();
+		conn.close();
+		stmt.close();
+		return al;
+	}
 
 }

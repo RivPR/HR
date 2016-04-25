@@ -171,6 +171,69 @@
 	</form>
 </div>
 
+<div id="projectstable">	
+	<form action="getAllProjByFields.do" method="GET">
+			<h3>Projects Table</h3>
+		Choose the field:<br /> <select name="fieldChoice" multiple>
+			<option value="id">ID</option>
+			<option value="name">Name</option>
+			<option value="start_date">Start Date</option>
+			<option value="end_date">End Date</option>
+			<option value="parent_project_id">Parent Project ID#</option>
+
+		</select> <br />
+		<button type="submit" name="allByField">Search for all projects by field</button>
+	
+		<h4>*Only type in the field you want to include*</h4>
+		<h5>*Make sure to erase all other fields*</h5>
+		<input type="radio" name="option" value="id">
+		<label for="option"><span><span></span></span>ID#</label>
+		<input type="text" name="where"><br/>
+		<input type="radio" name="option" value="name">
+		<label for="option"><span><span></span></span>Name</label>
+		<input type="text" name="where"><br/>
+		<input type="radio" name="option" value="start_date">
+		<label for="option"><span><span></span></span>Start Date </label>
+		<input type="text" name="where"><br/>
+		<input type="radio" name="option" value="end_date">
+		<label for="option"><span><span></span></span>End Date</label>
+		<input type="text" name="where"><br/>
+		<input type="radio" name="option" value="parent_project_id">
+		<label for="option"><span><span></span></span>Parent Project ID</label>
+		<input type="text" name="where"><br/>
+		<button type="submit" name="getit">Submit</button>
+	</form>
+</div>
+<div id="departmentstable">	
+	<form action="getAllDeptByFields.do" method="GET">
+			<h3>Departments Table</h3>
+		Choose the field:<br /> <select name="fieldChoice" multiple>
+			<option value="id">ID</option>
+			<option value="name">Name</option>
+			<option value="manager_id">Manager ID#</option>
+			<option value="location_id">Location ID#</option>
+		</select> <br />
+		<button type="submit" name="allByField">Search for all departments by field</button>
+	
+		<h4>*Only type in the field you want to include*</h4>
+		<h5>*Make sure to erase all other fields*</h5>
+		<input type="radio" name="option" value="id">
+		<label for="option"><span><span></span></span>ID#</label>
+		<input type="text" name="where"><br/>
+		<input type="radio" name="option" value="name">
+		<label for="option"><span><span></span></span>Name</label>
+		<input type="text" name="where"><br/>
+		<input type="radio" name="option" value="manager_id">
+		<label for="option"><span><span></span></span>Manager ID#</label>
+		<input type="text" name="where"><br/>
+		<input type="radio" name="option" value="location_id">
+		<label for="option"><span><span></span></span>Location ID#</label>
+		<input type="text" name="where"><br/>
+
+		<button type="submit" name="getit">Submit</button>
+	</form>
+</div>
+
 
 </body>
 </html>
