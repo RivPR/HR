@@ -11,6 +11,23 @@
     <link href="css/main.css" rel="stylesheet">
 </head>
 <body>
+
+<div class="container">
+<nav class="navbar navbar-inverse navbar-fixed-top hidden-xs">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="www.ARMoreira.com">ARMoreira</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="/HRWebApp/index.jsp">Home</a></li>
+      <li><a href="/HRWebApp/create.jsp">Create new employee</a></li> 
+      <li><a href="/HRWebApp/delete.jsp">Delete employee</a></li> 
+    </ul>
+  </div>
+</nav>
+</div>
+
 <div class="container">
 	<h1 class="page-header">Table Query</h1>
 	

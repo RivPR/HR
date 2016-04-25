@@ -228,7 +228,32 @@ public class HRController {
 		mv.addObject("field", choice);
 		return mv;
 	}
-	
+	@RequestMapping(path="createEmp.do", params="getit")
+	public ModelAndView createEmp(@RequestParam("option") String choice, @RequestParam("fname") String fname, 
+			                      @RequestParam("lname") String lname, @RequestParam("dID") String dID, 
+			                      @RequestParam("jID") String jID, @RequestParam("pass")String password ) throws ClassNotFoundException, SQLException{
+		//where = where.replace(',' , ' ').trim(); 
+		//System.out.println("This is the choices "+choice+" "+ field+" "+ where);
+		hrDao = new HRDao(choice, "employees");
+		System.out.println("before sending to DAO");
+		hrDao.createEmp(choice, fname, lname, dID, jID, password);
+		System.out.println("back in create emp");
+
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("index.jsp");
+		return mv;
+	}
+	@RequestMapping(path="deleteEmp.do", params="getit")
+	public ModelAndView deleteEmp(@RequestParam("id") String id, @RequestParam("pass") String pass) throws ClassNotFoundException, SQLException{
+		
+		
+		hrDao = new HRDao(id, "employees");
+		hrDao.deleteEmp(id, pass);
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("index.jsp");
+
+		return mv;
+	}
 	
 	
 	

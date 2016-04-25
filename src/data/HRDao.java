@@ -8,8 +8,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import controllers.HRController;
-
 public class HRDao {
 	private final String DRIVER_CLASS_NAME = "com.mysql.jdbc.Driver";
 	private final String URL = "jdbc:mysql://localhost:3306/companydb";
@@ -465,6 +463,60 @@ public class HRDao {
 		conn.close();
 		stmt.close();
 		return al;
+	}
+	public String createEmp(String choice, String fname, String lname, String dID, String jID, String password ) throws SQLException, ClassNotFoundException {
+		//System.out.println(choice + " " +  " " + fname+" " + lname+ " " + dID + " " + jID);
+
+		whereClause = ("'" + fname + "'," +"'" + lname + "',"+"'" + dID + "',"+"'" + jID + "'"  );
+
+		fields= ("INSERT INTO employees (" + choice + ") VALUES (" + whereClause + ")" );
+		System.out.println("this is whereclause: "+fields + password);
+		//System.out.println("in method");
+		
+		input = fields;
+		Class.forName(DRIVER_CLASS_NAME);
+		//System.out.println("before conn");
+		conn = DriverManager.getConnection(URL, "student", password);
+		sql = input;
+		//System.out.println("before statement");
+		stmt = conn.createStatement();
+		stmt.executeUpdate(sql);
+		System.out.println("after execute");
+
+		
+		conn.close();
+		stmt.close();
+		System.out.println("before leaving");
+		return "You added an employee!";
+		
+		
+	}
+	public String deleteEmp(String id, String password ) throws SQLException, ClassNotFoundException {
+		
+		
+		
+		
+		fields= ("DELETE FROM employees WHERE id=" + id + "" );
+		System.out.println("this is whereclause: "+fields + password);
+		//System.out.println("in method");
+		
+		input = fields;
+		Class.forName(DRIVER_CLASS_NAME);
+		//System.out.println("before conn");
+		conn = DriverManager.getConnection(URL, "student", password);
+		sql = input;
+		//System.out.println("before statement");
+		stmt = conn.createStatement();
+		stmt.executeUpdate(sql);
+		//System.out.println("after execute");
+		
+		
+		conn.close();
+		stmt.close();
+		//System.out.println("before leaving");
+		return "You deleted an employee!";
+		
+		
 	}
 
 }
